@@ -40,6 +40,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  display: grid;
+  gap: 2rem;
 }
 
 /* navbar */
@@ -252,7 +254,7 @@ body {
 .section-title {
   font-size: 2.3rem;
   font-weight: 700;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.75rem;
   position: relative;
   display: inline-block;
   background: linear-gradient(120deg, #fff, #8caeff);
@@ -290,16 +292,55 @@ body {
 
 .personal-details {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
 }
 
 .detail-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
   width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(108, 158, 255, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 10px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
-.detail-icon{
-  margin-right: 10px;
+.detail-card:hover,
+.detail-card:active,
+.detail-card.touch-active {
+  transform: translateY(-2px);
+  background: rgba(76, 126, 255, 0.12);
+  border-color: rgba(76, 126, 255, 0.28);
+}
+
+.detail-card {
+  touch-action: manipulation;
+}
+
+.detail-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(76, 126, 255, 0.95), rgba(138, 175, 255, 0.55));
+  color: #fff;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.detail-card span {
+  display: block;
+  color: #e8ecff;
+  font-weight: 500;
+  line-height: 1.35;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 
@@ -372,49 +413,83 @@ body {
 /* Skills */
 .skills-categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.75rem;
+}
+.skill-category {
+  background: rgba(14, 20, 38, 0.75);
+  border: 1px solid rgba(108, 158, 255, 0.18);
+  border-radius: 28px;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.skill-category:hover,
+.skill-category:active,
+.skill-category.touch-active {
+  transform: translateY(-5px);
+  border-color: rgba(76, 126, 255, 0.32);
+  background: rgba(17, 25, 45, 0.88);
+}
+.skill-category {
+  touch-action: manipulation;
 }
 .skill-category h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
   display: flex;
-  gap: 10px;
+  gap: 0.95rem;
   align-items: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #eff4ff;
+}
+.skill-category h3 i {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(108, 158, 255, 0.18);
+  color: #6c9eff;
 }
 .skill-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1rem;
   margin: 1rem 0;
   flex-wrap: wrap;
 }
 .skill-item span:first-child {
-  width: 110px;
-  font-weight: 500;
+  min-width: 120px;
+  font-weight: 600;
+  color: #dce4ff;
 }
 .progress-bar {
   flex: 1;
-  height: 8px;
-  background: #1e253f;
-  border-radius: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
   overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .progress-fill {
   width: 0%;
   height: 100%;
   background: linear-gradient(90deg, #6c9eff, #b56eff);
-  border-radius: 12px;
+  border-radius: 999px;
   transition: width 1s ease-out;
 }
 .percent {
-  width: 45px;
-  font-size: 0.8rem;
+  min-width: 45px;
+  font-size: 0.85rem;
+  color: #aab8ff;
+  text-align: right;
 }
 
 /* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
   gap: 2rem;
 }
 .project-card {
@@ -424,9 +499,14 @@ body {
   padding: 1.5rem;
   transition: 0.3s;
 }
-.project-card:hover {
+.project-card:hover,
+.project-card:active,
+.project-card.touch-active {
   transform: translateY(-8px);
   border-color: #6c9eff;
+}
+.project-card {
+  touch-action: manipulation;
 }
 .project-img {
   height: clamp(160px, 22vw, 210px);
@@ -483,7 +563,26 @@ body {
   margin-top: 1rem;
   box-shadow: 0 0 0 4px rgba(76,126,255,0.3);
 }
-.timeline-content { flex:1; padding: 1.2rem; }
+.timeline-content {
+  flex: 1;
+  padding: 1.2rem;
+  background: rgba(20, 25, 40, 0.65);
+  border: 1px solid rgba(108, 158, 255, 0.18);
+  border-radius: 24px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.timeline-item:hover .timeline-content,
+.timeline-item:active .timeline-content,
+.timeline-item.touch-active .timeline-content {
+  transform: translateY(-5px);
+  background: rgba(24, 31, 52, 0.88);
+  border-color: rgba(76, 126, 255, 0.35);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+}
+.timeline-item {
+  touch-action: manipulation;
+}
 .timeline-year { color: #8caeff; font-weight: 500; }
 
 /* Experience cards */
@@ -508,17 +607,101 @@ body {
   padding: 1.6rem;
   background: rgba(15,20,35,0.6);
   border-radius: 20px;
+  border: 1px solid rgba(108, 158, 255, 0.16);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.14);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.cert-card:hover,
+.cert-card:active,
+.cert-card.touch-active {
+  transform: translateY(-8px);
+  background: rgba(20, 28, 50, 0.88);
+  border-color: rgba(108, 158, 255, 0.32);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.22);
+}
+.cert-card {
+  touch-action: manipulation;
 }
 .cert-card img {
+  touch-action: manipulation;
+  cursor: pointer;
   width: 100%;
   height: 150px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+.cert-card img:hover {
+  transform: scale(1.03);
 }
 .cert-card h3 {
   font-size: 1rem;
   margin-bottom: 0.5rem;
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.image-modal.active {
+  display: flex;
+}
+.image-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 10, 20, 0.86);
+  backdrop-filter: blur(8px);
+}
+.image-modal-content {
+  position: relative;
+  max-width: min(95vw, 940px);
+  width: 100%;
+  max-height: 95vh;
+  padding: 1rem;
+  background: rgba(16, 22, 38, 0.95);
+  border: 1px solid rgba(108, 158, 255, 0.28);
+  border-radius: 24px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  overflow: hidden;
+}
+.image-modal-content img {
+  width: 100%;
+  max-height: calc(95vh - 120px);
+  height: auto;
+  border-radius: 18px;
+  object-fit: contain;
+  display: block;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f5f8ff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.modal-close:hover {
+  background: rgba(108, 158, 255, 0.25);
+  transform: scale(1.05);
+}
+.modal-caption {
+  margin-top: 0.9rem;
+  color: #d8e0ff;
+  font-size: 0.95rem;
+  text-align: center;
 }
 
 /* Contact */
@@ -650,18 +833,43 @@ body {
 @media (max-width: 500px) {
   .personal-details { grid-template-columns: 1fr; }
   .btn { padding: 8px 18px; }
+  .skill-category, .project-card, .cert-card {
+    padding: 1.35rem;
+  }
+  .skills-categories, .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .certs-grid {
+    gap: 1rem;
+  }
+  .cert-card {
+    width: 100%;
+    max-width: 100%;
+  }
+  .project-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .project-buttons .btn-small {
+    width: 100%;
+    max-width: 220px;
+  }
+  .detail-card {
+    padding: 0.95rem 1rem;
+  }
 }
 
 @media (max-width: 768px) {
   .profile-placeholder {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
   }
 }
 
 @media (max-width: 480px) {
   .profile-placeholder {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
   }
 }

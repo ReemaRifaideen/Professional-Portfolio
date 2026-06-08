@@ -126,7 +126,7 @@
         <div class="projects-grid">
           <!-- Project 1 -->
           <div class="project-card">
-            <div class="project-img"><img src="./imgs/proj1.png" alt=""></div>
+            <div class="project-img"><img src="./imgs/proj1.png" alt="shetravel website screenshot"></div>
             <p></p>
             <div class="tech-stack">HTML, CSS, and Mobile responsiveness</div>
             <div class="project-buttons">
@@ -227,26 +227,26 @@
         <h2 class="section-title">Certifications</h2>
         <div class="certs-grid">
           <div class="cert-card">
-            <img src="./imgs/Webdesign.png" alt="Web Design Certificate">
+            <img class="cert-img" src="./imgs/Webdesign.png" alt="Web Design Certificate">
             <h3>Web Design Certificate</h3>
             <p>Web Design for Beginners online programme, offered by the Department of Information Technology, University of Moratuwa, Sri Lanka, through the Centre for Open & Distance Learning (CODL).
             </p>
           </div>
           <div class="cert-card">
-            <img src="./imgs/Software dev.png" alt="Software Development Certificate">
+            <img class="cert-img" src="./imgs/Software dev.png" alt="Software Development Certificate">
             <h3>Software Development Certificate</h3>
             <p>“What is software development?”
             This certificate marks the beginning of an exciting, logic‑filled journey ahead
             </p>
           </div>
           <div class="cert-card">
-            <img src="./imgs/Front end web dev.png" alt="front end web dev certificate">
+            <img class="cert-img" src="./imgs/Front end web dev.png" alt="front end web dev certificate">
             <h3>Front-end Web Development</h3>
             <p>Offered by the Department of Information Technology, Faculty of Information Technology, University of Moratuwa, Sri Lanka, through the Centre for Open & Distance Learning (CODL).
             </p>
           </div>
           <div class="cert-card">
-            <img src="./imgs/Data science & analytics.png" alt="Data Science & Analytics Certificate">
+            <img class="cert-img" src="./imgs/Data science & analytics.png" alt="Data Science & Analytics Certificate">
             <h3>Data Science & Analytics Certificate</h3>
             <p> Turning data into decisions — that’s where the future lives. HP LIFE team for creating such a practical, insightful learning experience.
             </p>
@@ -297,6 +297,15 @@
       <button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
     </div>
   </footer>
+
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <div class="image-modal-backdrop" id="modalBackdrop"></div>
+    <div class="image-modal-content" role="dialog" aria-modal="true" aria-label="Certificate preview">
+      <button class="modal-close" id="modalClose" aria-label="Close certificate preview">×</button>
+      <img src="" alt="" id="modalImage">
+      <p class="modal-caption" id="modalCaption"></p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

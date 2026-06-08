@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ********** TYPING ANIMATION **********
   const typedTextSpan = document.querySelector(".typed-text");
-  const roles = ["Web Developer", "Front-End Developer", "Problem Solver", "Software Enthusiast"];
+  const roles = ["Junior Software Developer", "Full-Stack Aspiring", "HTML & CSS Expert"];
   let roleIndex = 0, charIndex = 0;
   let isDeleting = false;
   function typeEffect() {
@@ -157,6 +157,49 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("📄 Resume download demo: In a real scenario, your PDF would be downloaded.");
     });
   }
+
+  // ********** CERTIFICATE PREVIEW MODAL **********
+  const imageModal = document.getElementById("imageModal");
+  const modalBackdrop = document.getElementById("modalBackdrop");
+  const modalClose = document.getElementById("modalClose");
+  const modalImage = document.getElementById("modalImage");
+  const modalCaption = document.getElementById("modalCaption");
+
+  function closeModal() {
+    imageModal.classList.remove("active");
+    imageModal.setAttribute("aria-hidden", "true");
+    modalImage.src = "";
+    modalImage.alt = "";
+    modalCaption.textContent = "";
+  }
+
+  document.querySelectorAll(".cert-img").forEach(img => {
+    img.addEventListener("click", () => {
+      imageModal.classList.add("active");
+      imageModal.setAttribute("aria-hidden", "false");
+      modalImage.src = img.src;
+      modalImage.alt = img.alt;
+      modalCaption.textContent = img.alt;
+    });
+  });
+
+  modalBackdrop.addEventListener("click", closeModal);
+  modalClose.addEventListener("click", closeModal);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && imageModal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+
+  // mobile/touch feedback for cards
+  const touchCards = [".detail-card", ".skill-category", ".project-card", ".timeline-item", ".cert-card"];
+  touchCards.forEach(selector => {
+    document.querySelectorAll(selector).forEach(card => {
+      card.addEventListener("touchstart", () => card.classList.add("touch-active"), { passive: true });
+      card.addEventListener("touchend", () => card.classList.remove("touch-active"));
+      card.addEventListener("touchcancel", () => card.classList.remove("touch-active"));
+    });
+  });
 
   // pre-reveal for sections already visible on load
   window.dispatchEvent(new Event("scroll"));
