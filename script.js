@@ -114,6 +114,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const skillsSection = document.querySelector("#skills");
   if (skillsSection) progressObserver.observe(skillsSection);
 
+  // ********** EXPERIENCE TOGGLE **********
+  const expToggleBtn = document.getElementById("expToggleBtn");
+  const certToggleBtn = document.getElementById("certToggleBtn");
+  const extraExpCards = document.querySelectorAll(".exp-card--extra");
+  if (expToggleBtn && extraExpCards.length) {
+    expToggleBtn.addEventListener("click", () => {
+      const isExpanded = expToggleBtn.getAttribute("data-expanded") === "true";
+      extraExpCards.forEach(card => card.classList.toggle("is-visible", !isExpanded));
+      expToggleBtn.setAttribute("data-expanded", String(!isExpanded));
+      expToggleBtn.textContent = isExpanded ? "Show More Certificates" : "Show Less";
+    });
+  }
+
+  const certCardExtra = document.querySelector(".cert-card--extra");
+  if (certToggleBtn && certCardExtra) {
+    certToggleBtn.addEventListener("click", () => {
+      const isExpanded = certToggleBtn.getAttribute("data-expanded") === "true";
+      certCardExtra.classList.toggle("is-visible", !isExpanded);
+      certToggleBtn.setAttribute("data-expanded", String(!isExpanded));
+      certToggleBtn.textContent = isExpanded ? "Show More Certificates" : "Show Less";
+    });
+  }
+
   // ********** BACK TO TOP BUTTON **********
   const backBtn = document.getElementById("backToTop");
   window.addEventListener("scroll", () => {
@@ -173,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalCaption.textContent = "";
   }
 
-  document.querySelectorAll(".cert-img").forEach(img => {
+  document.querySelectorAll(".cert-img, .cert-preview-trigger").forEach(img => {
     img.addEventListener("click", () => {
       imageModal.classList.add("active");
       imageModal.setAttribute("aria-hidden", "false");

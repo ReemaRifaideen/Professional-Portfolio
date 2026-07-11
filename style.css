@@ -270,6 +270,96 @@ body {
   gap: 2rem;
   align-items: center;
 }
+
+/* Experience */
+.exp-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.exp-card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.exp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.28);
+  border-color: rgba(108, 158, 255, 0.35);
+}
+
+.exp-card i {
+  font-size: 1.2rem;
+  color: #6c9eff;
+}
+
+.exp-card h3 {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.exp-card h4 {
+  font-size: 0.85rem;
+  color: #9db4ff;
+  font-weight: 600;
+}
+
+.exp-card p {
+  color: #dce5ff;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.exp-img,
+.cert-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffffff, #eef2ff);
+  padding: 0.25rem;
+  margin: 0 auto;
+}
+
+.cert-card {
+  overflow: hidden;
+}
+
+.exp-card--extra {
+  display: none;
+}
+
+.exp-card--extra.is-visible {
+  display: flex;
+}
+
+.exp-toggle-btn {
+  margin: 1rem auto 0;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.cert-card--extra {
+  display: none;
+}
+
+.cert-card--extra.is-visible {
+  display: block;
+}
+
+.cert-toggle-btn {
+  margin: 1rem auto 0;
+  cursor: pointer;
+  padding: 10px 20px;
+}
 .about-text p {
   margin-bottom: 1.2rem;
 }
@@ -410,6 +500,19 @@ body {
   }
 
 }
+
+@media (max-width: 900px) {
+  .exp-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .exp-timeline {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Skills */
 .skills-categories {
   display: grid;
